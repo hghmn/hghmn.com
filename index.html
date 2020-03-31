@@ -30,7 +30,7 @@ title: "Home"
   <aside class="_0 tracked f7">
     <a href="{{ site.url }}" class="link">
       <time datetime="{{ site.time }}" class="pr1">{{ site.time | date: "%B %-d, %Y" }}</time>
-      <span class="dib border-box w4 bl bw1 pl3">{{ site.data['hash_short'] }}</span>
+      <span class="dib border-box w4 bl bw1 pl3">{{ site.github.build_revision |  slice: 0, 8 }}</span>
     </a>
   </aside>
 
