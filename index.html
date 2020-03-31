@@ -31,9 +31,9 @@ title: "Home"
 </head>
 <body class="courier pa2 pv5 pv6-ns">
   <aside class="_0 tracked f7">
-    <a href="{{ site.url }}" class="link">
+    <a href="{{ site.github.repository_url }}/commit/{{ site.github.build_revision }}" class="link">
       <time datetime="{{ site.time }}" class="pr1">{{ site.time | date: "%B %-d, %Y" }}</time>
-      <span class="dib border-box w4 bl bw1 pl3">{{ site.github.build_revision |  slice: 0, 8 }}</span>
+      <span class="dib border-box w4 bl bw1 pl3">{{ site.github.build_revision | slice: 0, 8 }}</span>
     </a>
   </aside>
 
@@ -86,8 +86,3 @@ title: "Home"
   </script>
 </body>
 </html>
-
-<!--
-<time class="f6 mb2 dib ttu tracked"><small>27 November, 2019</small></time>
-Nathan Hughes
--->

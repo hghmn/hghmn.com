@@ -4,12 +4,7 @@ tagline: "Nathan Hughes"
 url: "https://hghmn.com"
 repository: hghmn/hghmn.github.io
 
-# Social (not very, though)
-github: hghmn
-twitter: hghmn
-instagram: hghmn
-
 exclude: [README.md]
 
 plugins:
-  - jekyll-github-metadata
+  - "jekyll-github-metadata"
