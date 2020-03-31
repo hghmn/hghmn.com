@@ -17,16 +17,19 @@ title: "Home"
     /* Dark Mode Support */
     body { transition: color 1s, background-color 1s; }
     body.dark-mode { background-color: #000; color: white; }
-    body.dark-mode a.link { color: white; }
+    body a.link { color: #111; }
+    body.dark-mode a.link { color: #DDD; }
 
     ._0 {
       position: absolute;
       transform: rotate(-90deg) translateX(-100%);
       transform-origin: left top 0;
     }
+
+    .f8 { font-size: 0.625rem; }
   </style>
 </head>
-<body class="courier pa2 pv6-ns">
+<body class="courier pa2 pv5 pv6-ns">
   <aside class="_0 tracked f7">
     <a href="{{ site.url }}" class="link">
       <time datetime="{{ site.time }}" class="pr1">{{ site.time | date: "%B %-d, %Y" }}</time>
@@ -34,11 +37,11 @@ title: "Home"
     </a>
   </aside>
 
-  <aside id="mode" class="absolute right-1 top-1 tracked f7 pointer">
+  <aside id="mode" class="absolute right-0 top-1 pr3 tracked f8 f7-ns pointer">
     <span class="fw6">dark</span> / <span class="">light</span>  
   </aside>
 
-  <main class="mw8 center pl4">
+  <main class="mw8 center pl4 pr2">
     <div class="bb bw1 h4 relative">
 
       <!-- Nav links -->

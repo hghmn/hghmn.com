@@ -10,3 +10,6 @@ twitter: hghmn
 instagram: hghmn
 
 exclude: [README.md]
+
+plugins:
+  - jekyll-github-metadata
