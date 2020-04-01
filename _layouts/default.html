@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>hghmn</title>
+  <meta name="description" content="hghmn.com homepage">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta name="author" content="@hghmn">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="stylesheet" href="https://unpkg.com/tachyons/css/tachyons.min.css">
+  <style type="text/css">
+    /* Dark Mode Support */
+    body { transition: color 1s, background-color 1s; }
+    body.dark-mode { background-color: #000; color: white; }
+    body a.link { color: #111; }
+    body.dark-mode a.link { color: #DDD; }
+
+    ._0 {
+      position: absolute;
+      transform: rotate(-90deg) translateX(-100%);
+      transform-origin: left top 0;
+    }
+
+    .f8 { font-size: 0.625rem; }
+
+    .f-grayscale {
+      filter: grayscale(1);
+      transition: filter 0.3s ease-in;
+    }
+    .f-grayscale:hover {
+      filter: grayscale(0);
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+      from { opacity: 0 }
+      to { opacity: 1 }
+    }
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1s;
+      animation-fill-mode: forwards;
+    }
+    .fade-in--2 {
+      animation-delay: 0.2s;
+      animation-duration: 1s;
+    }
+    .fade-in--4 {
+      animation-delay: 0.4s;
+      animation-duration: 1s;
+    }
+  </style>
+</head>
+<body class="courier pa2 pv4 pv6-ns">
+
+  {{ content }}
+
+  <script type="text/javascript">
+    (function() {
+      var $body = document.body
+      var $mode = document.querySelector('#mode')
+      var $btn = $mode.querySelectorAll('span')
+
+      let mode = 0
+      if (localStorage.darkMode) {
+        if (localStorage.darkMode == 1) {
+          mode = 1
+          toggleClass($body, 'dark-mode')
+        }
+      } else if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        // dark mode
+        mode = 1
+        toggleClass($body, 'dark-mode')
+      }
+
+      $mode.addEventListener('click', function(e) {
+        let text = e.target.textContent;
+        if (text === '/') return;
+        mode = ++mode%2;
+
+        $btn.forEach(btn => toggleClass(btn, 'fw6'))
+        toggleClass($body, 'dark-mode')
+      })
+
+      function toggleClass(el, className) {
+        el.classList.toggle(className)
+        localStorage.darkMode = mode
+      }
+      // function addClass(el, className) { el.classList.add(className) }
+      // function removeClass(el, className) { el.classList.remove(className) }
+    })()
+  </script>
+
+</body>
+</html>

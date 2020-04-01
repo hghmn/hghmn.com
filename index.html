@@ -27,6 +27,14 @@ title: "Home"
     }
 
     .f8 { font-size: 0.625rem; }
+
+    .f-grayscale {
+      filter: grayscale(1);
+      transition: filter 0.3s ease-in;
+    }
+    .f-grayscale:hover {
+      filter: grayscale(0);
+    }
   </style>
 </head>
 <body class="courier pa2 pv5 pv6-ns">
@@ -45,7 +53,7 @@ title: "Home"
     <div class="bb bw1 h4 relative">
 
       <!-- Nav links -->
-      <nav class="flex justify-between bb bw1">
+      <nav class="flex justify-between bb">
         <div class="flex items-center"></div>
         <div class="flex-grow flex items-center pv2">
           <a class="f6 link dib dim mr3 mr4-ns" href="https://github.com/hghmn">github</a>
@@ -56,33 +64,21 @@ title: "Home"
       <!-- Heading -->
       <h1 class="absolute bottom-0 mb1 f2 f1-ns avenir">Nathan Hughes</h1>
     </div>
+
+    <section class="pt2">
+      <ul class="list pl2">
+        <li class="lh-copy">
+          <a class="dib pv2 link" href="/pages/about">About</a>
+        </li>
+        <li class="lh-copy">
+          <a class="dib pv2 link" href="/pages/artwork">Artwork</a>
+        </li>
+      </ul>
+    </section>
   </main>
-
+  <script src="/assets/js/darkmode.js" defer></script>
   <script type="text/javascript">
-    (function() {
-      var $body = document.body
-      var $mode = document.querySelector('#mode')
-      var $btn = $mode.querySelectorAll('span')
-
-      let mode = 0
-      if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        // dark mode
-        mode = 1
-        toggleClass($body, 'dark-mode')
-      }
-
-      $mode.addEventListener('click', function(e) {
-        let text = e.target.textContent;
-        if (text === '/') return;
-        mode = ++mode%2;
-        $btn.forEach(btn => toggleClass(btn, 'fw6'))
-        toggleClass($body, 'dark-mode')
-      })
-
-      function toggleClass(el, className) { el.classList.toggle(className) }
-      function addClass(el, className) { el.classList.add(className) }
-      function removeClass(el, className) { el.classList.remove(className) }
-    })()
+    if (localStorage.darkMode == 1) document.body.classList.add('dark-mode')
   </script>
 </body>
 </html>
